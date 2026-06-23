@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assests/css/style.css">
+    <link rel="stylesheet" href="./assests/css/utilities.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar navbar-expand-lg fixed-top border-bottom border">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+                    <div class="col-3">
+                        <a class="text-decoration-none logo fs48 fw700" href="#">ProdCart</a>
+                    </div>
+
+                    <div class="col-9 allList">
+                        <ul class="navbar-nav  mx-auto" style="gap: 30px;">
+                            <li class="nav-item">
+                                <a class=" list  fs18 fw500" aria-current="page" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class=" list active fs18 fw500" href="./add-product.html">Add - View</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class=" list fs18 fw500" href="./edit-product.html">Edit Product</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ADD PRODUCT FORM -->
+
+    <section class="add-product">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="form-card">
+                        <div class="text-center mb-5">
+                            <i class="bi bi-bag-plus-fill display-3 text-primary"></i>
+                            <h2 class="mt-3 fs48 fw800">Add Product</h2>
+                        </div>
+
+                        <form id="productForm">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold"> Product Name </label>
+
+                                    <input type="text" class="form-control add-product-text" id="prName"
+                                        placeholder="Enter Product Name" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold"> Product Category </label>
+
+                                    <input type="text" class="form-control add-product-text" id="prCategory"
+                                        placeholder="Enter Product Category" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">
+                                        Product Price (₹)
+                                    </label>
+
+                                    <input type="number" class="form-control add-product-text" id="prPrice"
+                                        placeholder="Enter Product Price" />
+                                </div>
+                                <div class="col-md-9">
+                                    <label class="form-label fw-bold">
+                                        Product Image Upload
+                                    </label>
+
+                                    <textarea type="text" class="form-control add-product-text" id="prImage"
+                                        placeholder="Enter Image URL" rows="1"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold">
+                                        Product Description
+                                    </label>
+                                    <textarea rows="6" class="form-control add-product-text" id="prDescription"
+                                        placeholder="Enter Detailed Product Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="text-center mt-5">
+                                <button type="submit" class="add-btn btn-lg px-5 me-3">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Add Product
+                                </button>
+                                <button type="reset" class="reset-btn btn-lg px-5 me-3 ">
+                                    <i class="bi bi-arrow-counterclockwise"></i>
+                                    Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIEW PRODUCT -->
+
+    <section class="view-product">
+        <div class="container">
+            <div class="row">
+                <h2 class="fs48 fw700 text-center" style="color: #142d4c;">View Product</h2>
+            </div>
+            <div class="row my-5 mx-2">
+                <div class="col-md-8">
+                    <input id="search" class=" search-bar w-100 p-2 text-center" placeholder="Search by Product Name">
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn btn-success mx-2" style="border-radius: 50%; padding: 12px 14px;" onclick="sortLow()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-sort-numeric-down" viewBox="0 0 16 16">
+                            <path d="M12.438 1.668V7H11.39V2.684h-.051l-1.211.859v-.969l1.262-.906h1.046z" />
+                            <path fill-rule="evenodd"
+                                d="M11.36 14.098c-1.137 0-1.708-.657-1.762-1.278h1.004c.058.223.343.45.773.45.824 0 1.164-.829 1.133-1.856h-.059c-.148.39-.57.742-1.261.742-.91 0-1.72-.613-1.72-1.758 0-1.148.848-1.835 1.973-1.835 1.09 0 2.063.636 2.063 2.687 0 1.867-.723 2.848-2.145 2.848zm.062-2.735c.504 0 .933-.336.933-.972 0-.633-.398-1.008-.94-1.008-.52 0-.927.375-.927 1 0 .64.418.98.934.98" />
+                            <path
+                                d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293z" />
+                        </svg>
+                    </button>
+                    <button class="btn btn-danger mx-2" style="border-radius: 50%; padding: 12px 14px;" onclick="sortHigh()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-sort-numeric-up-alt" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.36 7.098c-1.137 0-1.708-.657-1.762-1.278h1.004c.058.223.343.45.773.45.824 0 1.164-.829 1.133-1.856h-.059c-.148.39-.57.742-1.261.742-.91 0-1.72-.613-1.72-1.758 0-1.148.848-1.836 1.973-1.836 1.09 0 2.063.637 2.063 2.688 0 1.867-.723 2.848-2.145 2.848zm.062-2.735c.504 0 .933-.336.933-.972 0-.633-.398-1.008-.94-1.008-.52 0-.927.375-.927 1 0 .64.418.98.934.98" />
+                            <path
+                                d="M12.438 8.668V14H11.39V9.684h-.051l-1.211.859v-.969l1.262-.906h1.046zM4.5 13.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12  mb-4">
+                    <div class="view-table">
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product Image</th>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="view-table-body">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let products = JSON.parse(localStorage.getItem("products")) || [];
+
+        let productForm = document.getElementById("productForm");
+
+        productForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let productData = {
+                id: Date.now(),
+                name: document.getElementById("prName").value.trim(),
+                category: document.getElementById("prCategory").value.trim(),
+                price: Number(document.getElementById("prPrice").value),
+                image: document.getElementById("prImage").value.trim(),
+                description: document.getElementById("prDescription").value.trim(),
+            };
+
+            let products = JSON.parse(localStorage.getItem("products")) || [];
+
+            products.push(productData);
+
+            localStorage.setItem("products", JSON.stringify(products));
+
+            alert("Product Added Successfully!");
+
+            productForm.reset();
+
+            window.location = "./add-product.html";
+        });
+    </script>
+    <script>
+        let html = "";
+
+        let prod = JSON.parse(localStorage.getItem("products")) || [];
+
+        let viewProduct = document.getElementById("view-table-body");
+
+        let editProductForm = document.getElementById("editProductForm");
+
+        function displayProducts() {
+            prod.map((p) => {
+                html += `
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img src="${p.image}" alt="${p.name}" class="cart-product-img me-3" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <h6 class="mb-0 fw800">${p.name}</h6>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <h6 class="mb-0 fw500">${p.category}</h6>
+                            </div>
+                        </td>
+                        <td class="fw500">₹${p.price}</td>
+                        <td>
+                            <button class=" edit-btn w-100" onclick="editProduct(${p.id})">
+                                    Edit
+                            </button>
+                            <button class="delete-btn w-100 mt-2" onclick="deleteProduct(${p.id})">
+                                    Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+        sortedProducts(prod);
+        console.log(prod);
+
+        function editProduct(id) {
+            localStorage.setItem("editProductId", id);
+            window.location.href = "./edit-product.html";
+        }
+
+        function deleteProduct(id) {
+            let prod = JSON.parse(localStorage.getItem("products")) || [];
+            prod = prod.filter((p) => p.id !== id);
+            localStorage.setItem("products", JSON.stringify(prod));
+            alert("Product Successfully Deleted !!!");
+            location.reload();
+        }
+        
+        function sortLow() {
+            prod.sort((a, b) => a.price - b.price);
+            sortedProducts(prod);
+        }
+
+        function sortHigh() {
+            prod.sort((a, b) => b.price - a.price);
+            sortedProducts(prod);
+        }
+
+        document.getElementById("search").addEventListener("input", function () {
+            let value = this.value.toLowerCase();
+
+            let filteredProducts = prod.filter((p) =>
+                p.name.toLowerCase().includes(value)
+            );
+
+            sortedProducts(filteredProducts);
+        });
+        function sortedProducts(productsArray) {
+            let html = "";
+            productsArray.map((p) => {
+                html += `
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img src="${p.image}" alt="${p.name}" class="cart-product-img me-3" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <h6 class="mb-0 fw800">${p.name}</h6>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <h6 class="mb-0 fw500">${p.category}</h6>
+                            </div>
+                        </td>
+                        <td class="fw500">₹${p.price}</td>
+                        <td>
+                            <button class="edit-btn w-100" onclick="editProduct(${p.id})">
+                                Edit
+                            </button>
+                            <button class="delete-btn w-100 mt-2" onclick="deleteProduct(${p.id})">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            viewProduct.innerHTML = html;
+        }
+
+
+    </script>
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
